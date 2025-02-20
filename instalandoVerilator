@@ -1,0 +1,39 @@
+Instalando Verilator.
+
+ - Comando de instalação:
+ 
+ 	  sudo apt-get install verilator
+
+ - Verificação:
+ 
+ 	  /usr/local/share/verilator/include/
+ 	
+  - Caso o comando não retorne nada, ir pelo github:
+   
+   	  git clone https://github.com/verilator/verilator
+   
+  - Procurar pela variável de ambiente VERILATOR_ROOT:
+   
+   	  echo $VERILATOR_ROOT
+   
+  - Se também não houver retorno, usar o comando:
+   
+   	  git checkout stable
+   
+  - Depois disso, usar a seguinte sequência de comando
+   
+   	  autoconf
+   	  ./configure
+   	  make -j `nproc`
+   	  sudo make install
+   
+     Possíveis erros no sequência de comandos:
+   
+     - autoconf : pode não estar instalado, usar sudo apt install autoconf
+     - ./configure : pode não encontrar algo no PATH, neste caso usar sudo apt-get install COISA
+     - sudo make install : pode não encontrar help2man, neste caso usar grep -R help2man para verificar se os arquivos com essa definição existem, e depois sudo apt-get install help2man
+   
+  - Por fim, fazer a verificação novamente para visualizar os retornos esperados:
+   	  /usr/local/share/verilator/include/
+   
+   
